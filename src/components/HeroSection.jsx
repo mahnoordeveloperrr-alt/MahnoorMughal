@@ -80,18 +80,18 @@ export default function HeroSection({
       <div className="video" id="heroVideo" ref={videoRef}>
         <div className="main-video" id="mainVideo" ref={mainVideoRef}>
           <video
-            id="myVideo"
-            ref={videoElRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            crossOrigin="anonymous"
-            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 220'%3E%3Crect fill='%231a1a2e' width='800' height='220'/%3E%3Ccircle cx='400' cy='110' r='40' fill='none' stroke='rgba(255,255,255,0.3)' stroke-width='2'/%3E%3Cpolygon points='390,90 390,130 420,110' fill='rgba(255,255,255,0.4)'/%3E%3Ctext x='400' y='175' text-anchor='middle' fill='rgba(255,255,255,0.5)' font-family='Inter,sans-serif' font-size='12' letter-spacing='3'%3ELOADING...%3C/text%3E%3C/svg%3E"
-          >
-            <source src="/img/portfolio.mp4" type="video/mp4" />
-          </video>
+  id="myVideo"
+  ref={videoElRef}
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+  crossOrigin="anonymous"
+  poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 220'%3E%3Crect fill='%231a1a2e' width='800' height='220'/%3E%3Ccircle cx='400' cy='110' r='40' fill='none' stroke='rgba(255,255,255,0.3)' stroke-width='2'/%3E%3Cpolygon points='390,90 390,130 420,110' fill='rgba(255,255,255,0.4)'/%3E%3Ctext x='400' y='175' text-anchor='middle' fill='rgba(255,255,255,0.5)' font-family='Inter,sans-serif' font-size='12' letter-spacing='3'%3ELOADING...%3C/text%3E%3C/svg%3E"
+>
+  <source src={import.meta.env.BASE_URL + "img/portfolio.mp4"} type="video/mp4" />
+</video>
           <div className="video-fallback" id="videoFallback">
             <span>◆ Creative Tech Visual ◆</span>
           </div>
