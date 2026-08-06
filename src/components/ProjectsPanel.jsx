@@ -48,7 +48,7 @@ export default function ProjectsPanel({ openKove }) {
           <div className="label">{p.label}</div>
           <div className="panel-image">
             <div className="overlay-panel"></div>
-            <img src={p.img} alt={p.fallback} loading="lazy"
+            <img src={p.img} alt={p.fallback} fetchpriority="high"
               onError={(e) => {
                 e.target.style.display = 'none'
                 e.target.parentElement.style.background = '#2a2a2a'

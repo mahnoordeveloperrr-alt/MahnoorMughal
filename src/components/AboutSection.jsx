@@ -4,7 +4,7 @@ export default function AboutSection({ titleRef, capabilitiesTitleRef, marqueeWr
       <section className="hero" id="aboutHero">
         <a href="#" className="tag">ABOUT ME</a>
 <div className="top-image">
-  <img src={import.meta.env.BASE_URL + "img/about-3.jpg"} alt="Abstract decorative object" loading="lazy" />
+  <img src={import.meta.env.BASE_URL + "img/about-3.jpg"} alt="Abstract decorative object" fetchpriority="high" />
 </div>
        <div className="hero-content">
           <h1 className="about-hero-title" ref={titleRef}>
@@ -13,7 +13,7 @@ export default function AboutSection({ titleRef, capabilitiesTitleRef, marqueeWr
           </h1>
         </div>
 <div className="bottom-image">
-  <img src={import.meta.env.BASE_URL + "img/about-4.jpg"} alt="Laptop showing design work preview" loading="lazy" />
+  <img src={import.meta.env.BASE_URL + "img/about-4.jpg"} alt="Laptop showing design work preview" fetchpriority="high" />
 </div>         <div className="hero-buttons-wrapper">
           <div className="hero-buttons">
             <a href="#" className="btn" onClick={(e) => { e.preventDefault(); openKove(1) }}>VIEW PROJECTS</a>

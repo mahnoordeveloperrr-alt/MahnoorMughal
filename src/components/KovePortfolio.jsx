@@ -222,7 +222,7 @@ const KovePortfolio = forwardRef(({ isOpen, currentProject, setCurrentProject, o
               <div key={n} className={`kove-gallery ${currentProject === n ? 'active' : ''}`} data-project={n}>
                 <div className="kove-column kove-column1" ref={setCol1Ref(n)}>
                   {col1Images.map((src, i) => (
-                    <img key={`${n}-c1-${i}`} src={src} alt="" loading="lazy"
+                    <img key={`${n}-c1-${i}`} src={src} alt="" fetchpriority="high"
                       onError={(e) => {
                         e.target.style.display = 'none'
                         const fallback = document.createElement('div')
@@ -235,7 +235,7 @@ const KovePortfolio = forwardRef(({ isOpen, currentProject, setCurrentProject, o
                 </div>
                 <div className="kove-column kove-column2" ref={setCol2Ref(n)}>
                   {col2Images.map((src, i) => (
-                    <img key={`${n}-c2-${i}`} src={src} alt="" loading="lazy"
+                    <img key={`${n}-c2-${i}`} src={src} alt="" fetchpriority="high"
                       onError={(e) => {
                         e.target.style.display = 'none'
                         const fallback = document.createElement('div')
