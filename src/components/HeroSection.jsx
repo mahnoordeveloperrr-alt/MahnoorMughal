@@ -5,7 +5,7 @@ export default function HeroSection({
   adjestRef,
   videoRef,
   mainVideoRef,
-  playPauseBtnRef, // ab iska use nahi, prop rakh sakte hain ya hata sakte hain
+  playPauseBtnRef,   // ab iska use nahi, rakh sakte hain
   counterNumberRef,
   counterLabelRef,
   smallTextRef,
@@ -14,6 +14,7 @@ export default function HeroSection({
 }) {
   const videoElRef = useRef(null)
   const heroSectionRef = useRef(null)
+  const videoReadyRef = useRef(false)   // track video loaded
 
   useEffect(() => {
     const vid = videoElRef.current
@@ -28,20 +29,40 @@ export default function HeroSection({
     }
     mainVid.addEventListener('click', toggleMute)
 
-    // ---------- Intersection Observer: play only when hero is visible ----------
+    // ---------- Ensure video is ready before playing ----------
+    const handleCanPlay = () => {
+      videoReadyRef.current = true
+      // If hero is visible, start playing immediately
+      const rect = heroEl.getBoundingClientRect()
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0
+      if (isVisible) {
+        vid.play().catch(() => {})
+      }
+    }
+    vid.addEventListener('canplay', handleCanPlay)
+    // If already ready (e.g., loaded from cache), trigger directly
+    if (vid.readyState >= 2) {
+      handleCanPlay()
+    }
+
+    // ---------- Intersection Observer: pause when not visible ----------
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            // Play if not already playing
-            if (vid.paused) vid.play().catch(() => {})
+            // Only play if video is ready
+            if (videoReadyRef.current && vid.paused) {
+              vid.play().catch(() => {})
+            }
           } else {
             // Pause when scrolled away
-            if (!vid.paused) vid.pause()
+            if (!vid.paused) {
+              vid.pause()
+            }
           }
         })
       },
-      { threshold: 0.3 } // play when at least 30% visible
+      { threshold: 0.1 } // play even if 10% visible (earlier trigger)
     )
     observer.observe(heroEl)
 
@@ -66,6 +87,7 @@ export default function HeroSection({
     return () => {
       clearTimeout(timeout)
       mainVid.removeEventListener('click', toggleMute)
+      vid.removeEventListener('canplay', handleCanPlay)
       observer.disconnect()
     }
   }, [])
@@ -115,7 +137,7 @@ export default function HeroSection({
           <div className="video-fallback" id="videoFallback">
             <span>◆ Creative Tech Visual ◆</span>
           </div>
-          {/* Play/Pause button completely removed */}
+          {/* No play/pause button */}
         </div>
       </div>
 
