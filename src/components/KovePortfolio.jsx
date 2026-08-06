@@ -138,18 +138,19 @@ const KovePortfolio = forwardRef(({ isOpen, currentProject, setCurrentProject, o
 
   // Generate double images array for a project (5 images then same 5 again)
   const getDoubleImages = (projNum, startIdx) => {
-    const imgs = []
-    for (let i = 0; i < 5; i++) {
-      const imgNum = ((startIdx + i) % 5) + 1
-      imgs.push(`/img/pro${projNum}-${imgNum}.png`)
-    }
-    // duplicate
-    for (let i = 0; i < 5; i++) {
-      const imgNum = ((startIdx + i) % 5) + 1
-      imgs.push(`/img/pro${projNum}-${imgNum}.png`)
-    }
-    return imgs
+  const imgs = []
+  const BASE = import.meta.env.BASE_URL
+  for (let i = 0; i < 5; i++) {
+    const imgNum = ((startIdx + i) % 5) + 1
+    imgs.push(`${BASE}img/pro${projNum}-${imgNum}.png`)
   }
+  // duplicate
+  for (let i = 0; i < 5; i++) {
+    const imgNum = ((startIdx + i) % 5) + 1
+    imgs.push(`${BASE}img/pro${projNum}-${imgNum}.png`)
+  }
+  return imgs
+}
 
   return (
     <div className={`kove-portfolio ${isOpen ? 'active' : ''}`} ref={containerRef}>

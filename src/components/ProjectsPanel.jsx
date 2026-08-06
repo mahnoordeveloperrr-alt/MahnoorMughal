@@ -34,12 +34,12 @@ export default function ProjectsPanel({ openKove }) {
     }
   }, [])
 
-  const projects = [
-    { num: 1, label: 'Project 01', title: 'Studio<br />Lumina', subtitle: 'Interior Design Studio', img: '/img/pro1.png', fallback: 'STUDIO LUMINA' },
-    { num: 2, label: 'Project 02', title: 'Tennis<span style="font-family: Oswald, sans-serif">X</span>', subtitle: 'Sports & Wellness', img: '/img/pro2.png', fallback: 'TENNIS X' },
-    { num: 3, label: 'Project 03', title: 'ORRA<br />Jewelry', subtitle: 'Luxury E-commerce', img: '/img/pro3.png', fallback: 'ORRA' },
-    { num: 4, label: 'Project 04', title: 'Annatar<br />Forge', subtitle: 'Alpine Fashion Brand', img: '/img/pro4.png', fallback: 'ANNATAR' },
-  ]
+ const projects = [
+  { num: 1, label: 'Project 01', title: 'Studio<br />Lumina', subtitle: 'Interior Design Studio', img: import.meta.env.BASE_URL + "img/pro1.png", fallback: 'STUDIO LUMINA' },
+  { num: 2, label: 'Project 02', title: 'Tennis<span style="font-family: Oswald, sans-serif">X</span>', subtitle: 'Sports & Wellness', img: import.meta.env.BASE_URL + "img/pro2.png", fallback: 'TENNIS X' },
+  { num: 3, label: 'Project 03', title: 'ORRA<br />Jewelry', subtitle: 'Luxury E-commerce', img: import.meta.env.BASE_URL + "img/pro3.png", fallback: 'ORRA' },
+  { num: 4, label: 'Project 04', title: 'Annatar<br />Forge', subtitle: 'Alpine Fashion Brand', img: import.meta.env.BASE_URL + "img/pro4.png", fallback: 'ANNATAR' },
+];
 
   return (
     <section className="projects-panel" id="projects">

@@ -3,15 +3,18 @@ export default function AboutSection({ titleRef, capabilitiesTitleRef, marqueeWr
     <div className="aboutsection">
       <section className="hero" id="aboutHero">
         <a href="#" className="tag">ABOUT ME</a>
-        <div className="top-image"><img src="/img/about-3.jpg" alt="Abstract decorative object" loading="lazy" /></div>
-        <div className="hero-content">
+<div className="top-image">
+  <img src={import.meta.env.BASE_URL + "img/about-3.jpg"} alt="Abstract decorative object" loading="lazy" />
+</div>
+       <div className="hero-content">
           <h1 className="about-hero-title" ref={titleRef}>
             Frontend alchemy — turning <br />ideas into gold. Building <br />modern digital experiences <br />
             through clean design and smart <br /> development for ambitious <br />brands and creative businesses.
           </h1>
         </div>
-        <div className="bottom-image"><img src="/img/about-4.jpg" alt="Laptop showing design work preview" loading="lazy" /></div>
-        <div className="hero-buttons-wrapper">
+<div className="bottom-image">
+  <img src={import.meta.env.BASE_URL + "img/about-4.jpg"} alt="Laptop showing design work preview" loading="lazy" />
+</div>         <div className="hero-buttons-wrapper">
           <div className="hero-buttons">
             <a href="#" className="btn" onClick={(e) => { e.preventDefault(); openKove(1) }}>VIEW PROJECTS</a>
             <a href="#" className="circle-btn">↓</a>
